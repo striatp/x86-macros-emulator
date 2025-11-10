@@ -5,7 +5,7 @@
 #include "include/arithmetics.h"
 #include "include/bitwise.h"
 #include "include/data.h"
-#include "include/registries.h"
+#include "include/registers.h"
 #include "include/system.h"
 
 #endif /* CASSEMBLY_H */
