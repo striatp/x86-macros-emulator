@@ -44,7 +44,7 @@ int test_ADD_parity_flag() {
     return (_PF == 1);
 }
 
-/* Auxiliary Carry Flag (carry from lower nibble) */
+/* Auxiliary Carry Flag */
 int test_ADD_aux_carry_flag() {
     _INT a = 0x0F;
     _INT b = 1;
