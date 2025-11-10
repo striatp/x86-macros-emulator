@@ -4,6 +4,7 @@
 
 #include "include/arithmetics.h"
 #include "include/bitwise.h"
+#include "control.h"
 #include "include/data.h"
 #include "include/registers.h"
 #include "include/system.h"
