@@ -1,0 +1,66 @@
+name: Build & Test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "source"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "source"
+
+jobs:
+  build:
+    name: Building and Testing on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+        compiler:
+          - clang
+          - gcc
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Compiler
+        if: matrix.compiler == 'clang'
+        run: |
+          echo "Using clang compiler"
+        shell: bash
+
+      - name: Build (Unix-like)
+        if: runner.os != 'Windows'
+        run: |
+          mkdir -p build
+          clang -Wall -Wextra -std=c17 -O2 -o build/x86-macros-emulator source/main.c
+        shell: bash
+
+      - name: Build (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          mkdir build
+          clang -Wall -Wextra -std=c17 -O2 -o build/x86-macros-emulator.exe source/main.c
+        shell: pwsh
+
+      - name: Run Tests (Unix-like)
+        if: runner.os != 'Windows'
+        run: |
+          echo "Running executable..."
+          ./build/x86-macros-emulator
+        shell: bash
+
+      - name: Run Tests (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          echo "Running executable..."
+          .\build\x86-macros-emulator.exe
+        shell: pwsh
