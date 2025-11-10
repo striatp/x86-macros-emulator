@@ -44,7 +44,7 @@ int test_SUB_parity_flag() {
     return (_PF == 1);
 }
 
-/* Auxiliary Carry Flag (borrow from lower nibble) */
+/* Auxiliary Carry Flag */
 int test_SUB_aux_carry_flag() {
     _INT a = 0x10;
     _INT b = 1;
