@@ -1,6 +1,6 @@
+#pragma once
 #ifndef BITWISE_H
 #define BITWISE_H
-#pragma once
 
     #define _AND(destination, source) do { \
         _INT _T1 = (destination); \

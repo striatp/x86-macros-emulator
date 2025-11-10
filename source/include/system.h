@@ -1,6 +1,6 @@
+#pragma once
 #ifndef SYSTEM_H
 #define SYSTEM_H
-#pragma once
 
     #include <stdint.h>
     #include <stdbool.h>

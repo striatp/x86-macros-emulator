@@ -1,6 +1,6 @@
+#pragma once
 #ifndef REGISTRIES_H
 #define REGISTRIES_H
-#pragma once
 
     #include "system.h"
 

@@ -1,6 +1,6 @@
+#pragma once
 #ifndef ARITHMETICS_H
 #define ARITHMETICS_H
-#pragma once
 
     #define _ADD(destination, source) do { \
         _INT _T1 = (destination); \

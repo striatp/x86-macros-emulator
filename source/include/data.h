@@ -1,6 +1,6 @@
+#pragma once
 #ifndef DATA_H
 #define DATA_H
-#pragma once
 
     #define _MOV(destination, source) do { \
         _INT _T = (source); \
