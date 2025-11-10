@@ -3,6 +3,8 @@
 [System.String] $TestsDirectory = "./tests" ;
 [System.String] $BuildDirectory = "./bin" ;
 
+[System.String] $TestFiles = "$TestsDirectory/test_add.c" ;
+
 # Create build directory if non-existent
 if (-not (Test-Path $BuildDirectory)) {
     New-Item -ItemType Directory -Path $BuildDirectory | Out-Null ;
@@ -10,7 +12,7 @@ if (-not (Test-Path $BuildDirectory)) {
 
 Write-Host "Building test runner with Clang.";
 
-clang -Wall -Wextra -Werror "$TestsDirectory/run_tests.c" "$TestsDirectory/test_add.c" -o "$BuildDirectory/run_tests.exe" ;
+clang -Wall -Wextra -Werror "$TestsDirectory/run_tests.c" $TestFiles -o "$BuildDirectory/run_tests.exe" ;
 
 Write-Host "Build completed.";
 
