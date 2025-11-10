@@ -36,7 +36,6 @@ You can build the project and run examples using the provided Makefile:
 
 ```bash
 make build
-./bin/emulator
 ````
 
 To run the tests:
