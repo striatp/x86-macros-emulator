@@ -5,16 +5,16 @@ on:
     branches:
       - main
     paths:
-      - "source"
-      - "tests"
+      - "source/**"
+      - "tests/**"
       - ".github/workflows/build.yml"
 
   pull_request:
     branches:
       - main
     paths:
-      - "source"
-      - "tests"
+      - "source/**"
+      - "tests/**"
       - ".github/workflows/build.yml"
 
 jobs:
