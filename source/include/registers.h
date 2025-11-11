@@ -6,13 +6,13 @@
 
     // 64-bit register
     typedef union {
-        int64_t qword; // 64-bit full register
+        uint64_t qword; // 64-bit full register
         struct {
-            int32_t lo; // lower 32 bits
-            int32_t hi; // upper 32 bits
+            uint32_t lo; // lower 32 bits
+            uint32_t hi; // upper 32 bits
         };
         struct {
-            int16_t x[4]; // 16-bit halves
+            uint16_t x[4]; // 16-bit halves
         };
         struct {
             uint8_t b[8]; // 8-bit bytes
