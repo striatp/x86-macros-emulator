@@ -8,7 +8,7 @@
     typedef union {
         int64_t qword; // 64-bit full register
         struct {
-            int32_t lo; // lower 32 bits → EAX, EBX, etc.
+            int32_t lo; // lower 32 bits
             int32_t hi; // upper 32 bits
         };
         struct {
