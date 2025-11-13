@@ -23,8 +23,8 @@
     } RegisterIndex;
 
 
-    register64_t _R[16] = {0}; // 64-bit general purpose registers storage
-    uint8_t _ZF = 0, _SF = 0, _CF = 0, _OF = 0, _PF = 0, _AF = 0; // CPU flags (1-bit logical values)
+    static register64_t _R[16] = {0}; // 64-bit general purpose registers storage
+    static uint8_t _ZF = 0, _SF = 0, _CF = 0, _OF = 0, _PF = 0, _AF = 0; // CPU flags (1-bit logical values)
 
     // 64-bit registers
     #define RAX _R[REG_RAX].qword
