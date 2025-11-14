@@ -87,6 +87,6 @@ int main(void) {
     int passed = 0, failed = 0;
     run_ADD_tests(&passed, &failed);
     run_SUB_tests(&passed, &failed);
-    printf("\n✅ Passed: %d | ❌ Failed: %d\n", passed, failed);
+    printf("\nPassed: %d | Failed: %d\n", passed, failed);
     return EXIT_SUCCESS;
 }
