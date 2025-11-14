@@ -61,7 +61,7 @@
         _OF = ((_T1 < 0 && _T2 > 0 && _RES > 0) || (_T1 > 0 && _T2 < 0 && _RES < 0)); \
         _PF = (__builtin_parity((unsigned)_RES) == 0); \
         _AF = (((_T1 ^ _T2 ^ _RES) & 0x10) != 0); \
-    } while(0)
+    } while (0)
 
     // MUL instruction
     #define MUL(destination, source) do { \
@@ -79,7 +79,7 @@
         _OF = (_T1 != 0 && _RES / _T1 != _T2); \
         _PF = (__builtin_parity((unsigned)_RES) == 0); \
         _AF = (((_T1 ^ _T2 ^ _RES) & 0x10) != 0); \
-    } while(0)
+    } while (0)
 
     // DIV instruction
     #define DIV(destination, source) do { \
@@ -97,7 +97,7 @@
         _OF = 0; \
         _PF = (__builtin_parity((unsigned)_RES) == 0); \
         _AF = 0; \
-    } while(0)
+    } while (0)
 
     // MOD instruction
     #define MOD(destination, source) do { \
@@ -129,7 +129,7 @@
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
         _PF = (__builtin_parity((unsigned)_RES) == 0); \
         _AF = ((_T ^ _RES) & 0x10) != 0; \
-    } while(0)
+    } while (0)
 
     // ABS instruction
     #define ABS(registry) do { \
@@ -143,7 +143,7 @@
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
         _PF = (__builtin_parity((unsigned)_RES) == 0); \
         _AF = ((_T ^ _RES) & 0x10) != 0; \
-    } while(0)
+    } while (0)
 
     // INC instruction
     #define INC(registry) do { \
@@ -156,7 +156,7 @@
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
         _PF = (__builtin_parity((unsigned)_RES) == 0); \
         _AF = (((_T ^ 1 ^ _RES) & 0x10) != 0); \
-    } while(0)
+    } while (0)
 
     // DEC instruction
     #define DEC(registry) do { \
@@ -169,6 +169,6 @@
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
         _PF = (__builtin_parity((unsigned)_RES) == 0); \
         _AF = (((_T ^ 1 ^ _RES) & 0x10) != 0); \
-    } while(0)
+    } while (0)
 
 #endif /* ARITHMETICS_H */
