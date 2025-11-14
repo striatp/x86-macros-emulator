@@ -60,13 +60,13 @@
         _SF = (_RES < 0); \
         _CF = (TO_UNSIGNED(_T1) < TO_UNSIGNED(_T2)); \
         _OF = ((_T1 < 0 && _T2 > 0 && _RES > 0) || (_T1 > 0 && _T2 < 0 && _RES < 0)); \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = (((_T1 ^ _T2 ^ _RES) & 0x10) != 0); \
     } while (0)
 
     // MUL instruction
     #define MUL(destination, source) do { \
-        _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+        _Static_assert( \
             __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
             IS_INTEGER_LITERAL(source), \
             "destination and source must be the same type or source must be an integer literal"); \
@@ -79,13 +79,13 @@
         _SF = (_RES < 0); \
         _CF = (_T1 != 0 && _RES / _T1 != _T2); \
         _OF = (_T1 != 0 && _RES / _T1 != _T2); \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = (((_T1 ^ _T2 ^ _RES) & 0x10) != 0); \
     } while (0)
 
     // DIV instruction
     #define DIV(destination, source) do { \
-        _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+        _Static_assert( \
             __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
             IS_INTEGER_LITERAL(source), \
             "destination and source must be the same type or source must be an integer literal"); \
@@ -98,13 +98,13 @@
         _SF = (_RES < 0); \
         _CF = 0; \
         _OF = 0; \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = 0; \
     } while (0)
 
     // MOD instruction
     #define MOD(destination, source) do { \
-        _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+        _Static_assert( \
             __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
             IS_INTEGER_LITERAL(source), \
             "destination and source must be the same type or source must be an integer literal"); \
@@ -117,7 +117,7 @@
         _SF = (_RES < 0); \
         _CF = 0; \
         _OF = 0; \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = 0; \
     } while(0)
 
@@ -131,7 +131,7 @@
         _SF = (_RES < 0); \
         _CF = (_T != 0); \
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = ((_T ^ _RES) & 0x10) != 0; \
     } while (0)
 
@@ -145,7 +145,7 @@
         _SF = (_RES < 0); \
         _CF = (_T < 0); \
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = ((_T ^ _RES) & 0x10) != 0; \
     } while (0)
 
@@ -158,7 +158,7 @@
         _ZF = (_RES == 0); \
         _SF = (_RES < 0); \
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = (((_T ^ 1 ^ _RES) & 0x10) != 0); \
     } while (0)
 
@@ -171,7 +171,7 @@
         _ZF = (_RES == 0); \
         _SF = (_RES < 0); \
         _OF = (_T == ((__typeof__(_T))1 << (sizeof(_T)*8 - 1))); \
-        _PF = (__builtin_parity((unsigned)_RES) == 0); \
+        _PF = (__builtin_parity((unsigned char)_RES) == 0); \
         _AF = (((_T ^ 1 ^ _RES) & 0x10) != 0); \
     } while (0)
 
