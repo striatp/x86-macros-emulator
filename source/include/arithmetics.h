@@ -48,8 +48,9 @@
     // SUB instruction
     #define SUB(destination, source) do { \
         _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
-                       IS_INTEGER_LITERAL(source), \
-                       "destination and source must be the same type or source must be an integer literal"); \
+            __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+            IS_INTEGER_LITERAL(source), \
+            "destination and source must be the same type or source must be an integer literal"); \
         __typeof__(destination) _T1 = (destination); \
         __typeof__(source) _T2 = (source); \
         __typeof__(destination) _RES = _T1 - _T2; \
@@ -66,8 +67,9 @@
     // MUL instruction
     #define MUL(destination, source) do { \
         _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
-                       IS_INTEGER_LITERAL(source), \
-                       "destination and source must be the same type or source must be an integer literal"); \
+            __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+            IS_INTEGER_LITERAL(source), \
+            "destination and source must be the same type or source must be an integer literal"); \
         __typeof__(destination) _T1 = (destination); \
         __typeof__(source) _T2 = (source); \
         __typeof__(destination) _RES = _T1 * _T2; \
@@ -84,8 +86,9 @@
     // DIV instruction
     #define DIV(destination, source) do { \
         _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
-                       IS_INTEGER_LITERAL(source), \
-                       "destination and source must be the same type or source must be an integer literal"); \
+            __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+            IS_INTEGER_LITERAL(source), \
+            "destination and source must be the same type or source must be an integer literal"); \
         __typeof__(destination) _T1 = (destination); \
         __typeof__(source) _T2 = (source); \
         __typeof__(destination) _RES = (_T2 != 0) ? (_T1 / _T2) : 0; \
@@ -102,8 +105,9 @@
     // MOD instruction
     #define MOD(destination, source) do { \
         _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
-                       IS_INTEGER_LITERAL(source), \
-                       "destination and source must be the same type or source must be an integer literal"); \
+            __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+            IS_INTEGER_LITERAL(source), \
+            "destination and source must be the same type or source must be an integer literal"); \
         __typeof__(destination) _T1 = (destination); \
         __typeof__(source) _T2 = (source); \
         __typeof__(destination) _RES = (_T2 != 0) ? (_T1 % _T2) : 0; \
