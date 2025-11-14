@@ -4,6 +4,7 @@
 
     #include <stdint.h>
     #include <stdbool.h>
+    #include <limits.h>
 
     #define _INT int32_t
     #define _UINT uint32_t
@@ -13,6 +14,8 @@
     #define _SBYTE int8_t
     #define _LONG int64_t
     #define _ULONG uint64_t
+
+    #define _INT32_MAX INT_MAX
 
     #define _VOID void
     #define _BOOL bool
