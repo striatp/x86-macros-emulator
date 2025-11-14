@@ -86,9 +86,9 @@
         _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
                        IS_INTEGER_LITERAL(source), \
                        "destination and source must be the same type or source must be an integer literal"); \
-        int64_t _T1 = (destination); \
-        int64_t _T2 = (source); \
-        int64_t _RES = (_T2 != 0) ? (_T1 / _T2) : 0; \
+        __typeof__(destination) _T1 = (destination); \
+        __typeof__(source) _T2 = (source); \
+        __typeof__(destination) _RES = (_T2 != 0) ? (_T1 / _T2) : 0; \
         (destination) = _RES; \
         \
         _ZF = (_RES == 0); \
@@ -119,8 +119,8 @@
 
     // NEG instruction
     #define NEG(registry) do { \
-        __typeof__(registery) _T = (registry); \
-        __typeof__(registery) _RES = -_T; \
+        __typeof__(registry) _T = (registry); \
+        __typeof__(registry) _RES = -_T; \
         (registry) = _RES; \
         \
         _ZF = (_RES == 0); \
@@ -133,8 +133,8 @@
 
     // ABS instruction
     #define ABS(registry) do { \
-        __typeof__(registery) _T = (registry); \
-        __typeof__(registery) _RES = (_T < 0) ? -_T : _T; \
+        __typeof__(registry) _T = (registry); \
+        __typeof__(registry) _RES = (_T < 0) ? -_T : _T; \
         (registry) = _RES; \
         \
         _ZF = (_RES == 0); \
@@ -147,8 +147,8 @@
 
     // INC instruction
     #define INC(registry) do { \
-        __typeof__(registery) _T = (registry); \
-        __typeof__(registery) _RES = _T + 1; \
+        __typeof__(registry) _T = (registry); \
+        __typeof__(registry) _RES = _T + 1; \
         (registry) = _RES; \
         \
         _ZF = (_RES == 0); \
@@ -160,8 +160,8 @@
 
     // DEC instruction
     #define DEC(registry) do { \
-        __typeof__(registery) _T = (registry); \
-        __typeof__(registery) _RES = _T - 1; \
+        __typeof__(registry) _T = (registry); \
+        __typeof__(registry) _RES = _T - 1; \
         (registry) = _RES; \
         \
         _ZF = (_RES == 0); \
