@@ -47,7 +47,7 @@
 
     // SUB instruction
     #define SUB(destination, source) do { \
-        _Static_assert(__builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
+        _Static_assert( \
             __builtin_types_compatible_p(__typeof__(destination), __typeof__(source)) || \
             IS_INTEGER_LITERAL(source), \
             "destination and source must be the same type or source must be an integer literal"); \
