@@ -12,17 +12,17 @@
             __builtin_types_compatible_p(__typeof__(x), long long) || \
             __builtin_types_compatible_p(__typeof__(x), unsigned int) || \
             __builtin_types_compatible_p(__typeof__(x), unsigned long) || \
-            __builtin_types_compatible_p(__typeof__(x), unsigned long long) ) )
+            __builtin_types_compatible_p(__typeof__(x), unsigned long long)))
 
     // Converts to 'unsigned X'
     #define TO_UNSIGNED(x) _Generic((x), \
-        char: (unsigned char)(x), \
-        signed char: (unsigned char)(x), \
-        short: (unsigned short)(x), \
-        int: (unsigned int)(x), \
-        long: (unsigned long)(x), \
-        long long: (unsigned long long)(x), \
-        default: (unsigned long long)(x) /* fallback */ \
+        char : (unsigned char)(x), \
+        signed char : (unsigned char)(x), \
+        short : (unsigned short)(x), \
+        int : (unsigned int)(x), \
+        long : (unsigned long)(x), \
+        long long : (unsigned long long)(x), \
+        default : (unsigned long long)(x) \
     )
 
     // ADD instruction
