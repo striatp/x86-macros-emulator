@@ -8,15 +8,23 @@ extern printf
 
 main:
     ; compute addition
-    mov rax, 0x5
-    mov rbx, 0x7
-    add rax, rbx
+    mov rcx, 0x5
+    mov rdx, 0x7
+    call add_fn
 
-    ; printf
+    ; print result
     lea rcx, [rel fmt]
     mov rdx, rax
     xor rax, rax
     call printf
 
     xor rax, rax
+    ret
+
+; 1 arg: RCX
+; 2 arg: RDX
+; returns RAX
+add_fn:
+    add rcx, rdx
+    mov rax, rcx
     ret
