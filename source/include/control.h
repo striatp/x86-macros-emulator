@@ -2,74 +2,29 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-    #define _LABEL(name) name:
-    #define _LBL(name) LABEL(name)
-
-    #define _JMP(label) do { \
-        goto label; \
+    // Jump condition helper function
+    #define _JC(condition, label) do { \
+        if (condition) goto label; \
     } while (0)
 
-    #define _JE(label) do { \
-        if (_ZF) { \
-            goto label; \
-        } \
-    } while (0)
+    #define LABEL(name) name:
 
-    #define _JNE(label) do { \
-        if (!_ZF) { \
-            goto label; \
-        } \
-    } while (0)
+    #define JMP(label) do { goto label; } while (0)
 
-    #define _JZ(label) _JE(label)
-    #define _JNZ(label) _JNE(label)
+    #define JE(label) _JC(_ZF, label)
+    #define JNE(label) _JC(!_ZF, label)
+    #define JZ(label) JE(label)
+    #define JNZ(label) JNE(label)
 
-    #define _JL(label) do { \
-        if (_SF != _OF) { \
-            goto label; \
-        } \
-    } while (0)
+    #define JL(label) _JC(_SF != _OF, label)
+    #define JG(label) _JC(!_ZF && (_SF == _OF), label)
+    #define JLE(label) _JC(_ZF || (_SF != _OF), label)
+    #define JGE(label) _JC(_SF == _OF, label)
 
-    #define _JG(label) do { \
-        if (!_ZF && (_SF == _OF)) { \
-            goto label; \
-        } \
-    } while (0)
+    #define JS(label) _JC(_SF, label)
+    #define JNS(label) _JC(!_SF, label)
 
-    #define _JLE(label) do { \
-        if (_ZF || (_SF != _OF)) { \
-            goto label; \
-        } \
-    } while (0)
-
-    #define _JGE(label) do { \
-        if (_SF == _OF) { \
-            goto label; \
-        } \
-    } while (0)
-
-    #define _JS(label) do { \
-        if (_SF) { \
-            goto label; \
-        } \
-    } while (0)
-
-    #define _JNS(label) do { \
-        if (!_SF) { \
-            goto label; \
-        } \
-    } while (0)
-
-    #define _JO(label) do { \
-        if (_OF) { \
-            goto label; \
-        } \
-    } while (0)
-
-    #define _JNO(label) do { \
-        if (!_OF) { \
-            goto label; \
-        } \
-    } while (0)
+    #define JO(label) _JC(_OF, label)
+    #define JNO(label) _JC(!_OF, label)
 
 #endif /* CONTROL_H */
