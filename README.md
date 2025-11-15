@@ -2,6 +2,7 @@
 
 **x86 Macros Emulator** is a lightweight C header collection that provides macro-based implementations of common x86-like arithmetic, logic, and system operations.
 It aims to simulate low-level CPU behavior, including register management, flag updates, and basic instruction semantics in a portable and educational way.
+This small project is a self-educational project, throughout the journey of building it, it helped me learning how computers really work.
 
 ## Overview
 
